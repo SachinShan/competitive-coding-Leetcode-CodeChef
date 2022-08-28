@@ -25,7 +25,7 @@ int fibo(int n){
 int main(){
     int n;
     cin>>n;
-    int dp[n+1];
+    // int dp[n+1];
     for(int i=0;i<n+1;i++){
         dp[i]=-1;
     }
