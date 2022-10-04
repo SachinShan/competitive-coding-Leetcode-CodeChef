@@ -20,24 +20,32 @@ int LinearSearch(int a[], int n, int x)
 int main()
 {
     int n, x, i, j;
-    cout << "Enter the size of the list";
+    cout << "Enter the size of the list ";
     cin >> n;
     int a[n];
-    cout << "Enter the Elements of the list";
-    for (i = 0; i < n; i++)
+    if (n == 0)
     {
-        cin >> a[i];
+        cout << "It is an empty array";
     }
-    cout << "Enter the elements to be searched";
-    cin >> x;
 
-    int result = LinearSearch(a, n - 1, x);
-    if (result == -1)
+    if (n != 0)
     {
-        cout << "Element not found";
-    }
-    else
-    {
-        cout << x << "found at index" << result;
+        cout << "Enter the Elements of the list. \n";
+        for (i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+        cout << "Enter the elements to be searched ";
+        cin >> x;
+
+        int result = LinearSearch(a, n - 1, x);
+        if (result == -1)
+        {
+            cout << "Element not found ";
+        }
+        else
+        {
+            cout << x << " found at index " << result;
+        }
     }
 }
