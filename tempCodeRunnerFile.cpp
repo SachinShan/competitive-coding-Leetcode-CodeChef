@@ -1,2 +1,0 @@
-if (height.empty())
-    
