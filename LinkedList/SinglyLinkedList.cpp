@@ -123,6 +123,9 @@ int main()
     insertAtPosition(head, 22, 3);
     print(head);
 
+    insertAtPosition(head, 69, 1);
+    print(head);
+
     deleteNode(3, head);
     print(head);
 
