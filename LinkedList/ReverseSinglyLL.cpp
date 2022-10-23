@@ -42,26 +42,52 @@ void print(Node *head)
     cout << endl;
 }
 
+// Reversing using while Loop
+
+// Node *reverse(Node *head)
+// {
+
+//     if (head == NULL || head->next == NULL)
+//     {
+//         return head;
+//     }
+
+//     Node *prev = NULL;
+//     Node *curr = head;
+//     Node *forward = NULL;
+
+//     while (curr != NULL)
+//     {
+//         forward = curr->next;
+//         curr->next = prev;
+//         prev = curr;
+//         curr = forward;
+//     }
+//     return prev;
+// }
+
+// Reversing using recursion methon
+void reverseLinkedList(Node *&head, Node *curr, Node *prev)
+{
+    // base case
+    if (curr == NULL)
+    {
+        head = prev;
+        return;
+    }
+
+    Node *forward = curr->next;
+    reverseLinkedList(head, forward, curr);
+    curr->next = prev;
+}
+
 Node *reverse(Node *head)
 {
 
-    if (head == NULL || head->next == NULL)
-    {
-        return head;
-    }
-
-    Node *prev = NULL;
     Node *curr = head;
-    Node *forward = NULL;
-
-    while (curr != NULL)
-    {
-        forward = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = forward;
-    }
-    return prev;
+    Node *prev = NULL;
+    reverseLinkedList(head, curr, prev);
+    return head;
 }
 
 int main()
@@ -90,7 +116,4 @@ int main()
 
     cout << "Reversed Linked List is : " << endl;
     print(reverse(head));
-
-    Node *tempp = reverse(head);
-    print(tempp);
 }
