@@ -44,16 +44,37 @@ void print(Node *head)
     cout << endl;
 }
 
-Node *reverse(Node *head)
+Node *reverse(Node *head, int k)
 {
-
+    if (head == NULL)
+    {
+        return NULL;
+    }
+    Node *next = NULL;
     Node *curr = head;
     Node *prev = NULL;
-    return head;
+    int count = 0;
+
+    while (curr != NULL && count < k)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+        count++;
+    }
+
+    if (next != NULL)
+    {
+        head->next = reverse(next, k);
+    }
+
+    return prev;
 }
 
 int main()
 {
+    int k;
     Node *node1 = new Node(10);
     cout << node1->data << endl;
     cout << node1->next << endl;
@@ -67,6 +88,9 @@ int main()
     insertAtHead(head, 15);
     print(head);
 
+    insertAtHead(head, 25);
+    print(head);
+
     inserAtTail(tail, 35);
     print(head);
 
@@ -76,6 +100,9 @@ int main()
     // cout << head;
     // cout << reverse(head);
 
+    cout << "Enter the group size i.e. k ";
+    cin >> k;
+
     cout << "Reversed Linked List is : " << endl;
-    print(reverse(head));
+    print(reverse(head, k));
 }
