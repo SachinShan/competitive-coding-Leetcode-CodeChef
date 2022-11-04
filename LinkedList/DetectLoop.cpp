@@ -1,4 +1,6 @@
 #include <iostream>
+#include <map>
+
 using namespace std;
 
 class Node
@@ -62,16 +64,39 @@ void print(Node *&tail)
     cout << endl;
 }
 
-void deleteNode(Node *&tail)
+bool isLoop(Node *head)
 {
+    if (head == NULL)
+    {
+        return false;
+    }
+
+    map<Node *, bool> visited;
+
+    Node *temp = head;
+
+    while (temp != NULL)
+    {
+        if (visited[temp])
+        {
+            return true;
+        }
+
+        visited[temp] = true;
+        temp = temp->next;
+    }
+    return false;
 }
 
 int main()
 {
     Node *tail = NULL;
+    Node *head;
 
     insertNode(tail, 5, 3);
     print(tail);
+
+    head = tail;
 
     insertNode(tail, 3, 5);
     print(tail);
@@ -84,4 +109,13 @@ int main()
 
     insertNode(tail, 5, 6);
     print(tail);
+
+    if (isLoop(head))
+    {
+        cout << "Loop Detected";
+    }
+    else
+    {
+        cout << "Loop is not Detected";
+    }
 }
