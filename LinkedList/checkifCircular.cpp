@@ -105,7 +105,7 @@ int main()
 
     if (isCircular(head))
     {
-        cout << "Is Circular";
+        cout << "Is Circular Linked List";
     }
     else
     {
