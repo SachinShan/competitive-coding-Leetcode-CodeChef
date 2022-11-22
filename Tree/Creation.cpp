@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class node
+class Treenode
 {
 public:
     int data;
-    node *left;
-    node *right;
+    Treenode *left;
+    Treenode *right;
 
-    node(int d)
+    Treenode(int d)
     {
         this->data = d;
         this->left = NULL;
@@ -16,12 +16,12 @@ public:
     }
 };
 
-node *buildtree(node *root)
+Treenode *buildtree(Treenode *root)
 {
     cout << "Enter the data: ";
     int data;
     cin >> data;
-    root = new node(data);
+    root = new Treenode(data);
 
     if (data == -1)
     {
@@ -37,7 +37,7 @@ node *buildtree(node *root)
 
 int main()
 {
-    node *root = NULL;
+    Treenode *root = NULL;
     root = buildtree(root);
     return 0;
 }
