@@ -11,8 +11,7 @@ int fibo(int n)
 {
     if (n == 0 || n == 1)
     {
-        dp[n] = n;
-        return dp[n];
+        return n;
     }
     if (dp[n] != -1)
     {
