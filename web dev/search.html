@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching Simulator</title>
+
+    <style>
+        table{
+            width: auto;
+            height: auto;
+        }
+        th,
+        td {
+            border: 2px solid gray;
+            padding: 10px;
+            height: 10px;
+            width: 30px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="cin">
+        Enter the size of the array: 
+        <input type="text" name="takinginput" id="takinput">
+        <button type="button" onclick="prrnt()">Click Here</button>
+    </div>
+
+    <!-- <form action="" name="frm" method="get">
+        <input type="text" name="siz" value=""></input>
+        <input type="button" value="Addition" onclick="jod(this.form, this.name)">
+    </form> -->
+
+    <div class="arr" id="prntarr">
+
+    </div>
+
+    <script>
+        // var n;
+        // function jod(form, field){
+        //     var n = parseInt(frm.siz.val);
+        //     console.log(n);
+        // }
+
+        var size;
+        function prrnt(){
+            size = document.getElementById("takinput").value;
+            console.log(size);
+
+            var arra = document.getElementById("prntarr");
+
+            var table = document.createElement("table");
+            var tabler = document.createElement("tr");
+
+            for(var i=0; i<size; i++){
+                var tabled = document.createElement("td");
+
+                var inp = document.createElement("input");
+                tabled.append(inp);
+                var num = "col" + i;
+                inp.setAttribute("id", num);
+                // butt.setAttribute("style", "width: 100%;");
+                // tabled.setAttribute("id", num);
+                // butt.setAttribute("onclick", "fun(this.id)");
+
+                tabler.append(tabled);
+            }
+            table.append(tabler);
+            arra.append(table);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        /* background-color: green; */
+        border: 2px solid gray;
+        border-collapse: collapse;
+        padding: 10px;
+        height: 10px;
+        width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <input type="text" name="takeInput" id="val" />
+      <button type="button" onclick="initialize()">Click ME</button>
+    </center>
+    <div id="mazebox"></div>
+    <div id="change">
+      <button
+        onclick="startMove()"
+        style="background-color: green; color: white"
+      >
+        START
+      </button>
+    </div>
+    <script type="text/javascript">
+      var maze;
+
+      var mazeobject = document.getElementById("mazebox");
+      var size = document.getElementById("val").value;
+      maze = [];
+      var smaze = new Array(size);
+
+      for (var i = 0; i < smaze.length; i++) {
+        smaze[i] = [];
+      }
+
+      function initialize() {
+        var x = document.getElementById("val").value;
+
+        var table = document.createElement("table");
+
+        for (var i = 0; i < x; i++) {
+          var tabler = document.createElement("tr");
+          for (var j = 0; j < x; j++) {
+            var tabled = document.createElement("td");
+            var butt = document.createElement("button");
+            var num = "col" + i + j;
+            butt.setAttribute("id", num);
+            butt.setAttribute("style", "width: 100%;");
+            tabled.setAttribute("id", num);
+            butt.setAttribute("onclick", "fun(this.id)");
+            tabled.append(butt);
+
+            tabler.append(tabled);
+          }
+          table.append(tabler);
+        }
+        mazeobject.append(table);
+        for (var i = 0; i < x; i++) {
+          for (var j = 0; j < x; j++) {
+            var gcolor = "col" + i + j;
+            document.getElementById(gcolor).style.backgroundColor = "green";
+          }
+        }
+      }
+
+      function fun(data) {
+        var dat = data;
+        document.getElementById(dat).style.backgroundColor = "red";
+      }
+
+      function startMove() {
+        var n = document.getElementById("val").value;
+        for (var k = 0; k < n; k++) {
+          var m = document.getElementById("val").value;
+
+          var arr1 = new Array(n);
+          for (var l = 0; l < n; l++) {
+            var checkCol = "col" + k + l;
+            var rang = document.getElementById(checkCol).style.backgroundColor;
+
+            if (rang == "green") {
+              arr1[l] = parseInt(1);
+            } else {
+              arr1[l] = parseInt(0);
+            }
+          }
+          maze.push(arr1);
+        }
+
+        for (var m = 0; m < n; m++) {
+          for (var q = 0; q < n; q++) {
+            window.alert(maze[m][q]);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
