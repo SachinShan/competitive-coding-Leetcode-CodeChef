@@ -6,17 +6,17 @@ using namespace std;
 void insertionSort(int n, int arr[])
 {
     cout << "This array is being sorted using Insertion sort" << endl;
-    int temp, j;
+    int mini, j;
     for (int i = 1; i < n; i++)
     {
-        temp = arr[i];
+        mini = arr[i];
         j = i - 1;
-        while (j >= 0 && arr[j] > temp)
+        while (j >= 0 && arr[j] > mini)
         {
             arr[j + 1] = arr[j];
             j = j - 1;
         }
-        arr[j + 1] = temp;
+        arr[j + 1] = mini;
     }
 }
 

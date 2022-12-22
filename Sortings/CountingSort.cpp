@@ -32,11 +32,6 @@ int main()
         sortArray[arr[i]]++;
     }
 
-    // for (int i = 0; i <= max; i++)
-    // {
-    //     cout << sortArray[i] << " ";
-    // }
-
     for (int i = 0; i <= max; i++)
     {
         for (int j = 1; j <= sortArray[i]; j++)

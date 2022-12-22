@@ -3,6 +3,19 @@ using namespace std;
 
 void shellSort(int n, int arr[])
 {
+    int gap, j;
+    for (gap = n / 2; gap > 0; gap = gap / 2)
+    {
+        for (int i = gap; i < n; i++)
+        {
+            int temp = arr[i];
+            for (j = i; j >= gap && arr[j - gap] > temp; j = j - gap)
+            {
+                arr[j] = arr[j - gap];
+            }
+            arr[j] = temp;
+        }
+    }
 }
 
 void printArray(int n, int arr[])

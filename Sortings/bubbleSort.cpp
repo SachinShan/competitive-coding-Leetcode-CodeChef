@@ -3,6 +3,16 @@ using namespace std;
 
 void bubbleSort(int n, int arr[])
 {
+    for (int i = n - 1; i >= 0; i--)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
 }
 
 void printArray(int n, int arr[])

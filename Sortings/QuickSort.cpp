@@ -30,8 +30,8 @@ void quickSort(int n, int arr[], int first, int last)
         }
         swap(arr[pivot], arr[j]);
 
-        quickSort(n, arr, first, j - 1);
-        quickSort(n, arr, j + 1, last);
+        quickSort(n, arr, first, last - 1);
+        quickSort(n, arr, first + 1, last);
     }
 }
 
