@@ -19,8 +19,6 @@ void printList(vector<vector<int>> &adj, int n)
 
 void dfs(vector<vector<int>> &adj, int node, vector<int> &ans)
 {
-    cout << "ye call hua hai"
-         << " " << node << endl;
     visited[node] = true;
     ans.push_back(node);
 
