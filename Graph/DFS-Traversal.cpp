@@ -2,11 +2,10 @@
 #include <vector>
 #include <bits/stdc++.h>
 using namespace std;
-unordered_map<int, bool> visited;
 
 void printList(vector<vector<int>> &adj, int n)
 {
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         cout << i << "- ";
         for (auto j : adj[i])
@@ -17,18 +16,24 @@ void printList(vector<vector<int>> &adj, int n)
     }
 }
 
-void dfs(vector<vector<int>> &adj, int node, vector<int> &ans)
+void dfs(vector<vector<int>> &adj, int node, vector<int> &ans, vector<int> &visited)
 {
-    visited[node] = true;
+    visited[node] = 1;
     ans.push_back(node);
 
     // traversing all the neighbours of the current node
     for (auto i : adj[node])
     {
         cout << i << " ";
-        if (visited[i] == false)
+    }
+    cout << endl;
+    for (auto i : adj[node])
+    {
+        // cout << i << " yahi call ho rha" << endl;
+        if (!visited[i])
         {
-            dfs(adj, node, ans);
+            // visited[i] = true;
+            dfs(adj, node, ans, visited);
         }
     }
 }
@@ -41,10 +46,10 @@ int main()
     cin >> n >> m;
 
     vector<vector<int>> adj(n + 1);
+    vector<int> visited(n + 1, 0);
 
     for (int i = 0; i < m; i++)
     {
-
         int u, v;
         cin >> u >> v;
 
@@ -55,7 +60,7 @@ int main()
 
     vector<int> ans; // vector to store the ans(dfs traversal)
 
-    dfs(adj, 1, ans);
+    dfs(adj, 1, ans, visited);
 
     cout << "DFS Traversal of the given Graph is: ";
     for (auto i : ans)
