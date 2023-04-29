@@ -30,5 +30,3 @@ public:
         ans.push_back(one);
 
         return ans;
-    }
-};
